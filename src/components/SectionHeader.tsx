@@ -7,9 +7,10 @@ interface SectionHeaderProps {
   titleAccent?: string;
   subtitle?: string;
   center?: boolean;
+  isAr?: boolean;
 }
 
-const SectionHeader = ({ overline, title, titleAccent, subtitle, center }: SectionHeaderProps) => (
+const SectionHeader = ({ overline, title, titleAccent, subtitle, center, isAr }: SectionHeaderProps) => (
   <motion.div
     variants={fadeUp}
     initial="hidden"
@@ -39,8 +40,9 @@ const SectionHeader = ({ overline, title, titleAccent, subtitle, center }: Secti
     {/* Title */}
     <h2 style={{
       fontSize: 'clamp(36px, 4.5vw, 56px)',
-      lineHeight: 1.05,
-      letterSpacing: '-0.03em',
+      lineHeight: isAr ? 1.3 : 1.05,
+      letterSpacing: isAr ? 0 : '-0.03em',
+      wordSpacing: isAr ? '4px' : 'normal',
     }}>
       {title}
       {titleAccent && <span style={{ color: 'var(--accent)' }}> {titleAccent}</span>}

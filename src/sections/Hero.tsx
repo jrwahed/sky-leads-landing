@@ -286,10 +286,11 @@ const Hero = ({ lang }: HeroProps) => {
             <h1
               style={{
                 fontFamily: isAr ? "'Tajawal', sans-serif" : "'Plus Jakarta Sans', sans-serif",
-                fontWeight: isAr ? 900 : 800,
+                fontWeight: isAr ? 800 : 800,
                 fontSize: 'clamp(48px, 5vw, 72px)',
-                lineHeight: 1.0,
+                lineHeight: isAr ? 1.3 : 1.0,
                 letterSpacing: isAr ? 0 : '-0.03em',
+                wordSpacing: isAr ? '4px' : 'normal',
               }}
             >
               <span style={{ display: 'block', color: 'var(--t1)' }}>{t.line1}</span>

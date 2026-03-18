@@ -13,11 +13,16 @@ const t = {
     company: 'Company Name',
     phone: 'Phone Number',
     title: 'Your Title (e.g. CEO, Marketing Director)',
+    companySizeLabel: 'Company Size',
+    companySizeOptions: ['1-10 employees', '11-50 employees', '51-200 employees', '200+ employees'],
+    hearAboutLabel: 'How did you hear about us?',
+    hearAboutOptions: ['Social Media', 'Google Search', 'Referral', 'Event', 'Other'],
     budgetLabel: 'Monthly Ad Budget',
     budgetNote: 'Our management fee is 20% of ad spend',
     submit: 'Submit & Connect on WhatsApp',
     required: 'This field is required',
     phoneError: 'Phone number must be numeric',
+    selectPlaceholder: 'Select...',
   },
   ar: {
     campaignTitle: 'ابدأ الكامبين بتاعك',
@@ -27,11 +32,16 @@ const t = {
     company: 'اسم الشركة',
     phone: 'رقم الموبايل',
     title: 'المسمى الوظيفي (مثال: CEO، مدير تسويق)',
+    companySizeLabel: 'حجم الشركة',
+    companySizeOptions: ['١-١٠ موظفين', '١١-٥٠ موظف', '٥١-٢٠٠ موظف', '+٢٠٠ موظف'],
+    hearAboutLabel: 'عرفتنا منين؟',
+    hearAboutOptions: ['السوشيال ميديا', 'بحث جوجل', 'ترشيح من حد', 'إيفنت أو مؤتمر', 'غير ذلك'],
     budgetLabel: 'الميزانية الإعلانية الشهرية',
     budgetNote: 'رسوم الإدارة ٢٠٪ من الإنفاق الإعلاني',
     submit: 'أرسل وتواصل على واتساب',
     required: 'هذا الحقل مطلوب',
     phoneError: 'رقم الموبايل لازم يكون أرقام بس',
+    selectPlaceholder: 'اختار...',
   },
 };
 
@@ -50,6 +60,8 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
   const [jobTitle, setJobTitle] = useState('');
+  const [companySize, setCompanySize] = useState('');
+  const [hearAbout, setHearAbout] = useState('');
   const [budget, setBudget] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -66,6 +78,8 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
     if (!phone.trim()) e.phone = l.required;
     else if (!/^[\d+\-\s()]+$/.test(phone.trim())) e.phone = l.phoneError;
     if (!jobTitle.trim()) e.jobTitle = l.required;
+    if (!companySize) e.companySize = l.required;
+    if (!hearAbout) e.hearAbout = l.required;
     if (mode === 'campaign' && !budget) e.budget = l.required;
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -75,6 +89,8 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
     if (!validate()) return;
     const prefix = mode === 'campaign' ? '🚀 Campaign Request' : '👀 Demo Request';
     let msg = `${prefix}\nCompany: ${company.trim()}\nPhone: ${phone.trim()}\nTitle: ${jobTitle.trim()}`;
+    msg += `\nCompany Size: ${companySize}`;
+    msg += `\nHeard About Us: ${hearAbout}`;
     if (mode === 'campaign' && budget) msg += `\nBudget: ${budget}`;
     msg += `\nSource: Sky Leads Landing Page`;
     window.open(`https://wa.me/201034575482?text=${encodeURIComponent(msg)}`, '_blank');
@@ -82,6 +98,8 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
     setCompany('');
     setPhone('');
     setJobTitle('');
+    setCompanySize('');
+    setHearAbout('');
     setBudget('');
     setErrors({});
   };
@@ -102,6 +120,27 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
     outline: 'none',
     transition: 'var(--transition-fast)',
     direction: dir,
+  });
+
+  const selectStyle = (hasError: boolean): React.CSSProperties => ({
+    width: '100%',
+    padding: '14px 16px',
+    minHeight: 48,
+    background: 'var(--bg-2)',
+    border: `1px solid ${hasError ? '#ff4444' : 'var(--border-2)'}`,
+    borderRadius: 'var(--r-md)',
+    color: 'var(--t1)',
+    fontFamily: font,
+    fontSize: 15,
+    outline: 'none',
+    transition: 'var(--transition-fast)',
+    direction: dir,
+    cursor: 'pointer',
+    appearance: 'none' as const,
+    WebkitAppearance: 'none' as const,
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: isAr ? '16px center' : 'calc(100% - 16px) center',
   });
 
   const errorStyle: React.CSSProperties = {
@@ -229,6 +268,38 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
                   style={inputStyle(!!errors.jobTitle)}
                 />
                 {errors.jobTitle && <div style={errorStyle}>{errors.jobTitle}</div>}
+              </div>
+
+              {/* Company Size */}
+              <div>
+                <label style={labelStyle}>{l.companySizeLabel}</label>
+                <select
+                  value={companySize}
+                  onChange={(e) => setCompanySize(e.target.value)}
+                  style={selectStyle(!!errors.companySize)}
+                >
+                  <option value="" disabled>{l.selectPlaceholder}</option>
+                  {l.companySizeOptions.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+                {errors.companySize && <div style={errorStyle}>{errors.companySize}</div>}
+              </div>
+
+              {/* How did you hear about us */}
+              <div>
+                <label style={labelStyle}>{l.hearAboutLabel}</label>
+                <select
+                  value={hearAbout}
+                  onChange={(e) => setHearAbout(e.target.value)}
+                  style={selectStyle(!!errors.hearAbout)}
+                >
+                  <option value="" disabled>{l.selectPlaceholder}</option>
+                  {l.hearAboutOptions.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+                {errors.hearAbout && <div style={errorStyle}>{errors.hearAbout}</div>}
               </div>
 
               {/* Budget (only for campaign) */}

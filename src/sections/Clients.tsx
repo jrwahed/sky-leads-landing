@@ -66,7 +66,7 @@ const Clients = ({ lang }: { lang: Lang }) => {
       borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)',
     }}>
       <div className="container">
-        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center />
+        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center isAr={isAr} />
       </div>
       <div style={{ marginTop: 64 }}>
         <MarqueeRow items={clientsRow1} trackClass="marquee-track-ltr" />

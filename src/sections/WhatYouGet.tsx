@@ -37,7 +37,7 @@ const WhatYouGet = ({ lang }: { lang: Lang }) => {
   return (
     <section style={{ background: 'var(--bg)', padding: 'var(--section-py) 0' }}>
       <div className="container">
-        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center />
+        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center isAr={isAr} />
 
         <motion.div
           variants={stagger(0.12)}

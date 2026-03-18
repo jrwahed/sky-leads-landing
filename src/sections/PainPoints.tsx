@@ -47,6 +47,7 @@ const PainPoints = ({ lang }: { lang: Lang }) => {
           titleAccent={t.titleAccent}
           subtitle={t.subtitle}
           center
+          isAr={isAr}
         />
 
         <motion.div

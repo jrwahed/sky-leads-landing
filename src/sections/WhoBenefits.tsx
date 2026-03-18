@@ -60,7 +60,7 @@ const WhoBenefits = ({ lang }: { lang: Lang }) => {
         }}>
           {/* Left — List */}
           <div>
-            <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} />
+            <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} isAr={isAr} />
 
             <motion.div
               variants={stagger(0.08)}

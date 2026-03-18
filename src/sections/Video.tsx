@@ -29,7 +29,7 @@ const Video = ({ lang }: { lang: Lang }) => {
   return (
     <section style={{ background: 'var(--bg-2)', padding: 'var(--section-py) 0' }}>
       <div className="container">
-        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} center />
+        <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} center isAr={isAr} />
 
         <motion.div
           variants={scaleIn}

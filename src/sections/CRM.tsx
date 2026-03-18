@@ -202,7 +202,7 @@ const CRM = ({ lang }: { lang: Lang }) => {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
           >
-            <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} />
+            <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} subtitle={t.sub} isAr={isAr} />
 
             <div style={{
               display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12,
