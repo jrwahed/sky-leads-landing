@@ -25,7 +25,8 @@ const ar = {
   line2: "بتدير مبيعات وتسويق شركات العقارات بالكامل.",
   sub: "Sky Leads مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها — من إنشاء الحملة لحد ما الـ Deal يتقفل.",
   desc: "",
-  micro: "خبرة أكتر من ٧ سنين. أكتر من ٣٠ مليون جنيه إنفاق إعلاني.",
+  micro1: "خبرة أكتر من ٧ سنين",
+  micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
   cta1: "ابدأ كامبين",
   cta2: "اطلب نسخة تجريبية مجاناً",
   cta3: "شوف السيستم بيشتغل إزاي",
@@ -333,7 +334,7 @@ const Hero = ({ lang }: HeroProps) => {
           )}
 
           {/* Microcopy */}
-          <motion.p
+          <motion.div
             variants={fadeUp}
             style={{
               fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
@@ -344,8 +345,15 @@ const Hero = ({ lang }: HeroProps) => {
               opacity: 0.7,
             }}
           >
-            {t.micro}
-          </motion.p>
+            {isAr ? (
+              <>
+                <span style={{ display: 'block' }}>{(t as typeof ar).micro1}</span>
+                <span style={{ display: 'block' }}>{(t as typeof ar).micro2}</span>
+              </>
+            ) : (
+              <span>{(t as typeof en).micro}</span>
+            )}
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
