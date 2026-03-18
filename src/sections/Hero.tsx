@@ -12,7 +12,7 @@ const en = {
   line1: "The AI System That Runs",
   line2: "Real Estate Sales & Marketing.",
   sub: "Sky Leads isn't just a marketing tool. It's a complete AI system that builds your campaigns, manages them, analyzes performance, and optimizes results — from campaign creation to closed deals.",
-  micro: "Built on 7+ years of experience. 50M+ EGP managed.",
+  micro: "Built on 7+ years of experience. 30M+ EGP managed.",
   cta1: "Start a Campaign",
   cta2: "Request a Free Demo",
   cta3: "See It In Action",
@@ -22,8 +22,9 @@ const ar = {
   badge: "نظام عقاري بالذكاء الاصطناعي",
   line1: "نظام الـ AI اللي بيدير",
   line2: "مبيعات وتسويق شركات العقارات بالكامل.",
-  sub: "Sky Leads مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها — من إنشاء الحملة لحد ما الـ Deal يتقفل.",
-  micro: "خبرة أكتر من ٧ سنين. أكتر من ٥٠ مليون جنيه إنفاق إعلاني.",
+  sub: "سكاي ليدز بلاتفورم متكاملة بتدير مبيعات وتسويق شركات العقارات بالكامل.",
+  micro1: "خبرة أكتر من ٧ سنين",
+  micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
   cta1: "ابدأ كامبين",
   cta2: "اطلب نسخة تجريبية مجاناً",
   cta3: "شوف السيستم بيشتغل إزاي",
@@ -314,7 +315,7 @@ const Hero = ({ lang }: HeroProps) => {
           </motion.div>
 
           {/* Microcopy */}
-          <motion.p
+          <motion.div
             variants={fadeUp}
             style={{
               fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
@@ -325,8 +326,15 @@ const Hero = ({ lang }: HeroProps) => {
               opacity: 0.7,
             }}
           >
-            {t.micro}
-          </motion.p>
+            {isAr ? (
+              <>
+                <span style={{ display: 'block' }}>{(t as typeof ar).micro1}</span>
+                <span style={{ display: 'block' }}>{(t as typeof ar).micro2}</span>
+              </>
+            ) : (
+              <span>{(t as typeof en).micro}</span>
+            )}
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
