@@ -24,11 +24,9 @@ const ar = {
   line1: "سكاي ليدز بلاتفورم متكاملة",
   line2: "بتدير مبيعات وتسويق",
   line3: "شركات العقارات بالكامل.",
-  sub1: "مش مجرد أداة تسويق.",
-  sub2: "ده نظام AI متكامل بيبني حملاتك",
-  sub3: "وبيديرها ويحللها ويحسّنها —",
-  sub4: "من أول إنشاء الكامبين",
-  sub5: "لحد ما الـ Deal يتقفل.",
+  sub1: "مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك",
+  sub2: "وبيديرها ويحللها ويحسّنها —",
+  sub3: "من أول إنشاء الكامبين لحد ما الـ Deal يتقفل.",
   micro1: "خبرة أكتر من ٧ سنين",
   micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
   cta1: "ابدأ كامبين",
@@ -327,9 +325,7 @@ const Hero = ({ lang }: HeroProps) => {
               }}>
                 <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub1}</span>
                 <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub2}</span>
-                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub3}</span>
-                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub4}</span>
-                <span style={{ display: 'block' }}>{(t as typeof ar).sub5}</span>
+                <span style={{ display: 'block' }}>{(t as typeof ar).sub3}</span>
               </div>
             ) : (
               <p style={{
