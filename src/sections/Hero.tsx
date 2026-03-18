@@ -22,10 +22,13 @@ const en = {
 const ar = {
   badge: "نظام عقاري بالذكاء الاصطناعي",
   line1: "سكاي ليدز بلاتفورم متكاملة",
-  line2: "بتدير مبيعات وتسويق شركات العقارات بالكامل.",
-  sub1: "Sky Leads مش مجرد أداة تسويق.",
-  sub2: "ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها —",
-  sub3: "من أول إنشاء الكامبين لحد ما الـ Deal يتقفل.",
+  line2: "بتدير مبيعات وتسويق",
+  line3: "شركات العقارات بالكامل.",
+  sub1: "مش مجرد أداة تسويق.",
+  sub2: "ده نظام AI متكامل بيبني حملاتك",
+  sub3: "وبيديرها ويحللها ويحسّنها —",
+  sub4: "من أول إنشاء الكامبين",
+  sub5: "لحد ما الـ Deal يتقفل.",
   micro1: "خبرة أكتر من ٧ سنين",
   micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
   cta1: "ابدأ كامبين",
@@ -297,8 +300,18 @@ const Hero = ({ lang }: HeroProps) => {
                 wordSpacing: isAr ? '6px' : 'normal',
               }}
             >
-              <span style={{ display: 'block', color: 'var(--t1)', marginBottom: isAr ? 8 : 0 }}>{t.line1}</span>
-              <span style={{ display: 'block', color: 'var(--accent)' }}>{t.line2}</span>
+              {isAr ? (
+                <>
+                  <span style={{ display: 'block', color: 'var(--t1)', marginBottom: 8 }}>{(t as typeof ar).line1}</span>
+                  <span style={{ display: 'block', color: 'var(--accent)', marginBottom: 8 }}>{(t as typeof ar).line2}</span>
+                  <span style={{ display: 'block', color: 'var(--accent)' }}>{(t as typeof ar).line3}</span>
+                </>
+              ) : (
+                <>
+                  <span style={{ display: 'block', color: 'var(--t1)' }}>{(t as typeof en).line1}</span>
+                  <span style={{ display: 'block', color: 'var(--accent)' }}>{(t as typeof en).line2}</span>
+                </>
+              )}
             </h1>
           </motion.div>
 
@@ -312,9 +325,11 @@ const Hero = ({ lang }: HeroProps) => {
                 color: 'var(--t2)',
                 lineHeight: 1.9,
               }}>
-                <span style={{ display: 'block', marginBottom: 6 }}>{(t as typeof ar).sub1}</span>
-                <span style={{ display: 'block', marginBottom: 6 }}>{(t as typeof ar).sub2}</span>
-                <span style={{ display: 'block' }}>{(t as typeof ar).sub3}</span>
+                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub1}</span>
+                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub2}</span>
+                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub3}</span>
+                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).sub4}</span>
+                <span style={{ display: 'block' }}>{(t as typeof ar).sub5}</span>
               </div>
             ) : (
               <p style={{
