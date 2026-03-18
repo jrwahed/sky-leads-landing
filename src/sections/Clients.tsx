@@ -58,7 +58,8 @@ const MarqueeRow = ({ items, trackClass }: { items: string[]; trackClass: string
 );
 
 const Clients = ({ lang }: { lang: Lang }) => {
-  const t = lang === 'ar' ? ar : en;
+  const isAr = lang === 'ar';
+  const t = isAr ? ar : en;
 
   return (
     <section style={{
