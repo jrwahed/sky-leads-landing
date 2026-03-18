@@ -52,7 +52,7 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
             <img
               src="/logo.png"
               alt="Sky Leads Digital Marketing"
-              style={{ height: 42, width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }}
+              style={{ height: 42, width: 'auto', objectFit: 'contain' }}
             />
           </a>
 

@@ -36,7 +36,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
             <img
               src="/logo.png"
               alt="Sky Leads"
-              style={{ height: 36, width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }}
+              style={{ height: 36, width: 'auto', objectFit: 'contain' }}
             />
             <p style={{
               fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
