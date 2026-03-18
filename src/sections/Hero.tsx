@@ -23,8 +23,9 @@ const ar = {
   badge: "نظام عقاري بالذكاء الاصطناعي",
   line1: "سكاي ليدز بلاتفورم متكاملة",
   line2: "بتدير مبيعات وتسويق شركات العقارات بالكامل.",
-  sub: "Sky Leads مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها — من إنشاء الحملة لحد ما الـ Deal يتقفل.",
-  desc: "",
+  sub1: "Sky Leads مش مجرد أداة تسويق.",
+  sub2: "ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها —",
+  sub3: "من أول إنشاء الكامبين لحد ما الـ Deal يتقفل.",
   micro1: "خبرة أكتر من ٧ سنين",
   micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
   cta1: "ابدأ كامبين",
@@ -301,37 +302,32 @@ const Hero = ({ lang }: HeroProps) => {
             </h1>
           </motion.div>
 
-          {/* Sub — big tagline */}
-          <motion.div variants={fadeUp} style={{ marginBottom: 16, maxWidth: 520 }}>
-            <p
-              style={{
-                fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+          {/* Sub — tagline */}
+          <motion.div variants={fadeUp} style={{ marginBottom: 20, maxWidth: 520 }}>
+            {isAr ? (
+              <div style={{
+                fontFamily: "'Tajawal', sans-serif",
+                fontWeight: 500,
+                fontSize: 18,
+                color: 'var(--t2)',
+                lineHeight: 1.9,
+              }}>
+                <span style={{ display: 'block', marginBottom: 6 }}>{(t as typeof ar).sub1}</span>
+                <span style={{ display: 'block', marginBottom: 6 }}>{(t as typeof ar).sub2}</span>
+                <span style={{ display: 'block' }}>{(t as typeof ar).sub3}</span>
+              </div>
+            ) : (
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 500,
                 fontSize: 20,
                 color: 'var(--t1)',
                 lineHeight: 1.7,
-              }}
-            >
-              {t.sub}
-            </p>
-          </motion.div>
-
-          {/* Desc — detailed explanation */}
-          {t.desc && (
-            <motion.div variants={fadeUp} style={{ marginBottom: 16, maxWidth: 520 }}>
-              <p
-                style={{
-                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
-                  fontWeight: 400,
-                  fontSize: 16,
-                  color: 'var(--t2)',
-                  lineHeight: 1.7,
-                }}
-              >
-                {t.desc}
+              }}>
+                {(t as typeof en).sub}
               </p>
-            </motion.div>
-          )}
+            )}
+          </motion.div>
 
           {/* Microcopy */}
           <motion.div
@@ -347,7 +343,7 @@ const Hero = ({ lang }: HeroProps) => {
           >
             {isAr ? (
               <>
-                <span style={{ display: 'block' }}>{(t as typeof ar).micro1}</span>
+                <span style={{ display: 'block', marginBottom: 4 }}>{(t as typeof ar).micro1}</span>
                 <span style={{ display: 'block' }}>{(t as typeof ar).micro2}</span>
               </>
             ) : (
