@@ -40,9 +40,9 @@ const SectionHeader = ({ overline, title, titleAccent, subtitle, center, isAr }:
     {/* Title */}
     <h2 style={{
       fontSize: 'clamp(36px, 4.5vw, 56px)',
-      lineHeight: isAr ? 1.3 : 1.05,
-      letterSpacing: isAr ? 0 : '-0.03em',
-      wordSpacing: isAr ? '4px' : 'normal',
+      lineHeight: isAr ? 1.35 : 1.05,
+      letterSpacing: isAr ? '0.02em' : '-0.03em',
+      wordSpacing: isAr ? '6px' : 'normal',
     }}>
       {title}
       {titleAccent && <span style={{ color: 'var(--accent)' }}> {titleAccent}</span>}

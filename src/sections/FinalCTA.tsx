@@ -75,12 +75,14 @@ const FinalCTA = ({ lang }: { lang: Lang }) => {
         {/* Headline */}
         <motion.h2 variants={fadeUp} style={{
           fontFamily: isAr ? "'Tajawal', sans-serif" : "'Plus Jakarta Sans', sans-serif",
-          fontWeight: isAr ? 900 : 800,
+          fontWeight: isAr ? 700 : 800,
           fontSize: 'clamp(28px, 7vw, 96px)',
-          lineHeight: 1.0, letterSpacing: isAr ? 0 : '-0.03em',
+          lineHeight: isAr ? 1.4 : 1.0,
+          letterSpacing: isAr ? '0.02em' : '-0.03em',
+          wordSpacing: isAr ? '6px' : 'normal',
           marginBottom: 32,
         }}>
-          <span style={{ display: 'block', color: 'var(--t1)', marginBottom: 4 }}>{t.line1}</span>
+          <span style={{ display: 'block', color: 'var(--t1)', marginBottom: isAr ? 8 : 4 }}>{t.line1}</span>
           <span style={{ display: 'block', color: 'var(--accent)' }}>{t.line2}</span>
         </motion.h2>
 

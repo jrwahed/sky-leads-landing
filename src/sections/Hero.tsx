@@ -286,14 +286,14 @@ const Hero = ({ lang }: HeroProps) => {
             <h1
               style={{
                 fontFamily: isAr ? "'Tajawal', sans-serif" : "'Plus Jakarta Sans', sans-serif",
-                fontWeight: isAr ? 800 : 800,
+                fontWeight: isAr ? 700 : 800,
                 fontSize: 'clamp(48px, 5vw, 72px)',
-                lineHeight: isAr ? 1.3 : 1.0,
-                letterSpacing: isAr ? 0 : '-0.03em',
-                wordSpacing: isAr ? '4px' : 'normal',
+                lineHeight: isAr ? 1.4 : 1.0,
+                letterSpacing: isAr ? '0.02em' : '-0.03em',
+                wordSpacing: isAr ? '6px' : 'normal',
               }}
             >
-              <span style={{ display: 'block', color: 'var(--t1)' }}>{t.line1}</span>
+              <span style={{ display: 'block', color: 'var(--t1)', marginBottom: isAr ? 8 : 0 }}>{t.line1}</span>
               <span style={{ display: 'block', color: 'var(--accent)' }}>{t.line2}</span>
             </h1>
           </motion.div>
