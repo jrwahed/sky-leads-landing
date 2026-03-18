@@ -8,7 +8,7 @@ const t = {
   en: {
     campaignTitle: 'Start Your Campaign',
     campaignSub: 'Fill in your details and we\'ll get your campaign running.',
-    demoTitle: 'Request a Demo',
+    demoTitle: 'Request a Free Demo',
     demoSub: 'See the full platform in action before you start.',
     company: 'Company Name',
     phone: 'Phone Number',
@@ -20,9 +20,9 @@ const t = {
     phoneError: 'Phone number must be numeric',
   },
   ar: {
-    campaignTitle: 'ابدأ حملتك الإعلانية',
-    campaignSub: 'املا بياناتك وهنبدأ نشغّلك الحملة.',
-    demoTitle: 'اطلب نسخة تجريبية',
+    campaignTitle: 'ابدأ الكامبين بتاعك',
+    campaignSub: 'املا بياناتك وهنبدأ نشغّلك الكامبين.',
+    demoTitle: 'اطلب نسخة تجريبية مجاناً',
     demoSub: 'شوف المنصة كلها شغالة قبل ما تبدأ.',
     company: 'اسم الشركة',
     phone: 'رقم الموبايل',

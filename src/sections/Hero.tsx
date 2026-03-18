@@ -14,7 +14,7 @@ const en = {
   sub: "Sky Leads isn't just a marketing tool. It's a complete AI system that builds your campaigns, manages them, analyzes performance, and optimizes results — from campaign creation to closed deals.",
   micro: "Built on 7+ years of experience. 50M+ EGP managed.",
   cta1: "Start a Campaign",
-  cta2: "Request a Demo",
+  cta2: "Request a Free Demo",
   cta3: "See It In Action",
 };
 
@@ -24,8 +24,8 @@ const ar = {
   line2: "مبيعات وتسويق شركات العقارات بالكامل.",
   sub: "Sky Leads مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها — من إنشاء الحملة لحد ما الـ Deal يتقفل.",
   micro: "خبرة أكتر من ٧ سنين. أكتر من ٥٠ مليون جنيه إنفاق إعلاني.",
-  cta1: "ابدأ حملة إعلانية",
-  cta2: "اطلب نسخة تجريبية",
+  cta1: "ابدأ كامبين",
+  cta2: "اطلب نسخة تجريبية مجاناً",
   cta3: "شوف السيستم بيشتغل إزاي",
 };
 
@@ -338,16 +338,6 @@ const Hero = ({ lang }: HeroProps) => {
               alignItems: isAr ? 'flex-end' : 'flex-start',
             }}
           >
-            <div className="hero-see-action">
-              <OutlineButton
-                label={t.cta3}
-                icon={<ChevronDown size={16} />}
-                onClick={() => {
-                  const nextSection = document.querySelector('section:nth-of-type(2)');
-                  nextSection?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              />
-            </div>
             <div className="hero-cta-buttons" style={{
               display: 'flex',
               gap: 16,
@@ -364,6 +354,33 @@ const Hero = ({ lang }: HeroProps) => {
                 label={t.cta2}
                 onClick={() => openForm('demo')}
               />
+            </div>
+            <div className="hero-see-action">
+              <button
+                onClick={() => {
+                  const nextSection = document.querySelector('section:nth-of-type(2)');
+                  nextSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                  fontWeight: 500,
+                  fontSize: 14,
+                  color: 'var(--t3)',
+                  padding: '8px 0',
+                  transition: 'var(--transition-fast)',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--t3)'; }}
+              >
+                {t.cta3}
+                <ChevronDown size={14} />
+              </button>
             </div>
           </motion.div>
         </motion.div>

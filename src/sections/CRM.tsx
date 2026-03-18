@@ -31,7 +31,7 @@ const en = {
     { value: "< 1m", label: "Avg. Response Time" },
     { value: "AI", label: "Scoring Engine" },
   ],
-  cta: "Request a Demo",
+  cta: "Request a Free Demo",
 };
 
 const ar = {
@@ -57,7 +57,7 @@ const ar = {
     { value: "< ١ دقيقة", label: "متوسط وقت الاستجابة" },
     { value: "AI", label: "محرك التصنيف" },
   ],
-  cta: "اطلب نسخة تجريبية",
+  cta: "اطلب نسخة تجريبية مجاناً",
 };
 
 const opacities = [1.0, 0.85, 0.65, 0.45, 0.30];

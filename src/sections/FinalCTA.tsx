@@ -12,7 +12,7 @@ const en = {
   line2: "Start Closing Deals.",
   body: "This is the system that will change how real estate companies in Egypt run their marketing and sales. Start a campaign with us or request a demo to see the platform in action.",
   cta1: "Start a Campaign",
-  cta2: "Request a Demo",
+  cta2: "Request a Free Demo",
   trust: ["No commitment required", "30-minute call only", "Free campaign analysis"],
 };
 
@@ -21,8 +21,8 @@ const ar = {
   line1: "خلاص متخمنش.",
   line2: "ابدأ تقفل Deals.",
   body: "ده السيستم اللي هيغير طريقة شركات العقارات في مصر ما بتدير التسويق والمبيعات. ابدأ حملة معانا أو اطلب ديمو تشوف المنصة بنفسك.",
-  cta1: "ابدأ حملة إعلانية",
-  cta2: "اطلب نسخة تجريبية",
+  cta1: "ابدأ كامبين",
+  cta2: "اطلب نسخة تجريبية مجاناً",
   trust: ["من غير أي التزام", "٣٠ دقيقة بس", "تحليل حملات مجاني"],
 };
 

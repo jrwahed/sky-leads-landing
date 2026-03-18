@@ -17,7 +17,7 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const isAr = lang === 'ar';
   const links = isAr ? navLinksAr : navLinksEn;
-  const ctaLabel = isAr ? 'ابدأ حملة' : 'Start a Campaign';
+  const ctaLabel = isAr ? 'ابدأ كامبين' : 'Start a Campaign';
   const { openForm } = useContactForm();
 
   useEffect(() => {
