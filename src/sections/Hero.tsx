@@ -12,6 +12,7 @@ const en = {
   line1: "The AI System That Runs",
   line2: "Real Estate Sales & Marketing.",
   sub: "Sky Leads isn't just a marketing tool. It's a complete AI system that builds your campaigns, manages them, analyzes performance, and optimizes results — from campaign creation to closed deals.",
+  desc: "",
   micro: "Built on 7+ years of experience. 30M+ EGP managed.",
   cta1: "Start a Campaign",
   cta2: "Request a Free Demo",
@@ -23,8 +24,8 @@ const ar = {
   line1: "نظام الـ AI اللي بيدير",
   line2: "مبيعات وتسويق شركات العقارات بالكامل.",
   sub: "سكاي ليدز بلاتفورم متكاملة بتدير مبيعات وتسويق شركات العقارات بالكامل.",
-  micro1: "خبرة أكتر من ٧ سنين",
-  micro2: "أكتر من ٣٠ مليون جنيه إنفاق إعلاني",
+  desc: "Sky Leads مش مجرد أداة تسويق. ده نظام AI متكامل بيبني حملاتك وبيديرها ويحللها ويحسّنها — من إنشاء الحملة لحد ما الـ Deal يتقفل.",
+  micro: "خبرة أكتر من ٧ سنين. أكتر من ٣٠ مليون جنيه إنفاق إعلاني.",
   cta1: "ابدأ كامبين",
   cta2: "اطلب نسخة تجريبية مجاناً",
   cta3: "شوف السيستم بيشتغل إزاي",
@@ -299,14 +300,14 @@ const Hero = ({ lang }: HeroProps) => {
             </h1>
           </motion.div>
 
-          {/* Subheadline */}
-          <motion.div variants={fadeUp} style={{ marginBottom: 20, maxWidth: 520 }}>
+          {/* Sub — big tagline */}
+          <motion.div variants={fadeUp} style={{ marginBottom: 16, maxWidth: 520 }}>
             <p
               style={{
                 fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
-                fontWeight: 400,
-                fontSize: 17,
-                color: 'var(--t2)',
+                fontWeight: 500,
+                fontSize: 20,
+                color: 'var(--t1)',
                 lineHeight: 1.7,
               }}
             >
@@ -314,8 +315,25 @@ const Hero = ({ lang }: HeroProps) => {
             </p>
           </motion.div>
 
+          {/* Desc — detailed explanation */}
+          {t.desc && (
+            <motion.div variants={fadeUp} style={{ marginBottom: 16, maxWidth: 520 }}>
+              <p
+                style={{
+                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                  fontWeight: 400,
+                  fontSize: 16,
+                  color: 'var(--t2)',
+                  lineHeight: 1.7,
+                }}
+              >
+                {t.desc}
+              </p>
+            </motion.div>
+          )}
+
           {/* Microcopy */}
-          <motion.div
+          <motion.p
             variants={fadeUp}
             style={{
               fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
@@ -326,15 +344,8 @@ const Hero = ({ lang }: HeroProps) => {
               opacity: 0.7,
             }}
           >
-            {isAr ? (
-              <>
-                <span style={{ display: 'block' }}>{(t as typeof ar).micro1}</span>
-                <span style={{ display: 'block' }}>{(t as typeof ar).micro2}</span>
-              </>
-            ) : (
-              <span>{(t as typeof en).micro}</span>
-            )}
-          </motion.div>
+            {t.micro}
+          </motion.p>
 
           {/* CTAs */}
           <motion.div
