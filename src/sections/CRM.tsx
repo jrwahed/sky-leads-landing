@@ -42,7 +42,7 @@ const ar = {
   features: [
     { icon: "Flame", label: "ليد سخن", color: "#ff4444", desc: "زار ٣+ مرات، تفاعل عالي — مستعد يشتري دلوقتي.", fill: 90 },
     { icon: "Droplets", label: "ليد فاتر", color: "#f5a623", desc: "أبدى اهتمام، محتاج نقطة تواصل واحدة كمان وهيحوّل.", fill: 60 },
-    { icon: "Snowflake", label: "ليد بارد", color: "#4a9eff", desc: "لسه بدري — محتاج حملة nurturing قبل أي مكالمة بيع.", fill: 25 },
+    { icon: "Snowflake", label: "ليد بارد", color: "#4a9eff", desc: "لسه بدري — محتاج كامبين nurturing قبل أي مكالمة بيع.", fill: 25 },
   ],
   pipelineLabel: "خط أنابيب المبيعات",
   pipeline: [

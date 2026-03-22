@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Brain, Building2, Crosshair, ShieldCheck } from 'lucide-react';
+import { Rocket, Brain, Building2, Crosshair } from 'lucide-react';
 import { fadeUp, stagger } from '@/lib/animations';
 import { Lang } from '@/hooks/useLanguage';
 import SectionHeader from '@/components/SectionHeader';
 
-const icons = { Rocket, Brain, Building2, Crosshair, ShieldCheck };
+const icons = { Rocket, Brain, Building2, Crosshair };
 
 const en = {
   overline: "HOW THE SYSTEM WORKS",
@@ -16,7 +16,6 @@ const en = {
     { number: "02", icon: "Brain", title: "AI Analyzes Your Campaigns", body: "The system monitors all campaigns 24/7, detects underperformance, and recommends exactly where to shift budget.", micro: "No more guessing which campaign works." },
     { number: "03", icon: "Building2", title: "Leads Enter the Smart CRM", body: "Every lead is captured, tracked, and scored by AI — hot, warm, or cold. Your team knows exactly who to call first.", micro: "The right lead, at the right time." },
     { number: "04", icon: "Crosshair", title: "Sales Activity Gets Tracked", body: "From first call to signed contract, every interaction is logged. The system shows where deals stall and why.", micro: "Full visibility on your sales pipeline." },
-    { number: "05", icon: "ShieldCheck", title: "AI Improves the Next Campaign", body: "Everything the system learns feeds back into your next campaign — better targeting, lower CPL, higher conversion.", micro: "Every campaign makes the system smarter." },
   ],
 };
 
@@ -25,11 +24,10 @@ const ar = {
   title: "نظام واحد متصل.",
   titleAccent: "من الإعلان للـ Deal.",
   steps: [
-    { number: "01", icon: "Rocket", title: "بنبنيلك حملاتك", body: "Sky Leads بتنشئلك الحملات الإعلانية من الصفر — الاستهداف، الإعلانات، الكوبي، وتوزيع الميزانية — كلها متحسّنة بالـ AI من أول يوم.", micro: "مش بتعمل حاجة. إحنا بنبنيها." },
-    { number: "02", icon: "Brain", title: "الـ AI بيحلل حملاتك", body: "السيستم بيراقب كل الحملات ٢٤/٧، بيكتشف الضعف، وبيقولك بالظبط فين تحوّل الميزانية.", micro: "خلاص مفيش تخمين أنهي حملة شغالة." },
+    { number: "01", icon: "Rocket", title: "بنبنيلك الكامبين", body: "Sky Leads بتنشئلك الكامبينز الإعلانية من الصفر — الاستهداف، الإعلانات، الكوبي، وتوزيع الميزانية — كلها متحسّنة بالـ AI من أول يوم.", micro: "مش بتعمل حاجة. إحنا بنبنيها." },
+    { number: "02", icon: "Brain", title: "الـ AI بيحلل الكامبين", body: "السيستم بيراقب كل الكامبينز ٢٤/٧، بيكتشف الضعف، وبيقولك بالظبط فين تحوّل الميزانية.", micro: "خلاص مفيش تخمين أنهي كامبين شغال." },
     { number: "03", icon: "Building2", title: "الليدز بتدخل الـ CRM الذكي", body: "كل ليد بيتسجل وبيتتبع وبياخد score من الـ AI — سخن، فاتر، أو بارد. فريقك يعرف مين يكلمه الأول.", micro: "الليد الصح، في الوقت الصح." },
     { number: "04", icon: "Crosshair", title: "نشاط المبيعات بيتتبع", body: "من أول مكالمة لحد توقيع العقد، كل تفاعل متسجل. السيستم بيوريك فين الـ Deals بتقف وليه.", micro: "رؤية كاملة على مسار المبيعات." },
-    { number: "05", icon: "ShieldCheck", title: "الـ AI بيحسّن الحملة الجاية", body: "كل حاجة السيستم بيتعلمها بترجع تحسّن الحملة الجاية — استهداف أدق، تكلفة أقل، تحويل أعلى.", micro: "كل حملة بتخلي السيستم أذكى." },
   ],
 };
 
@@ -49,7 +47,7 @@ const HowItWorks = ({ lang }: { lang: Lang }) => {
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           className="hiw-grid"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 24, marginTop: 72 }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginTop: 72 }}
         >
           {t.steps.map((step, i) => {
             const IconComp = icons[step.icon as keyof typeof icons];
@@ -76,7 +74,7 @@ const HowItWorks = ({ lang }: { lang: Lang }) => {
                 }}
               >
                 {/* Connecting line */}
-                {i < 4 && (
+                {i < 3 && (
                   <div className="hiw-connector" style={{
                     position: 'absolute',
                     right: -12,

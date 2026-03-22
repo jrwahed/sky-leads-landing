@@ -22,7 +22,7 @@ const ar = {
   reviews: [
     { stars: 5, quote: "Sky Leads غيرت طريقة شغلنا بالكامل. وصلنا من التخمين للتأكد — والـ CPL انخفض ٣٨٪ في أول شهر.", name: "أحمد خليل", title: "مدير التسويق", company: "Capital Hills Developments", initials: "أح" },
     { stars: 5, quote: "الداشبورد اللايف وحده كان يستاهل. فريق المبيعات دلوقتي عارف بالظبط مين يكلمه الأول. سرعة الإغلاق اتضاعفت في ٦ أسابيع.", name: "سارة مصطفى", title: "مديرة المبيعات", company: "Palm Hills Developments", initials: "سم" },
-    { stars: 5, quote: "أخيراً وكالة بتتكلم بلغتنا — نتايج مش مجرد وصول. وصلنا لـ ROI بـ ٢٠٠٪ في حملات الربع التالت.", name: "عمر فاروق", title: "CEO", company: "Sobek Developments", initials: "عف" },
+    { stars: 5, quote: "أخيراً وكالة بتتكلم بلغتنا — نتايج مش مجرد وصول. وصلنا لـ ROI بـ ٢٠٠٪ في كامبينز الربع التالت.", name: "عمر فاروق", title: "CEO", company: "Sobek Developments", initials: "عف" },
   ],
 };
 
