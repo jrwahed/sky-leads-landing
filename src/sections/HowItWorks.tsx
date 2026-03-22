@@ -37,7 +37,7 @@ const HowItWorks = ({ lang }: { lang: Lang }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section style={{ background: 'var(--bg-2)', padding: 'var(--section-py) 0' }}>
+    <section id="how-it-works" style={{ background: 'var(--bg-2)', padding: 'var(--section-py) 0' }}>
       <div className="container">
         <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center isAr={isAr} />
 

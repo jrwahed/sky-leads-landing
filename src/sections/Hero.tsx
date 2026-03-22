@@ -395,8 +395,8 @@ const Hero = ({ lang }: HeroProps) => {
             <div className="hero-see-action">
               <button
                 onClick={() => {
-                  const nextSection = document.querySelector('section:nth-of-type(2)');
-                  nextSection?.scrollIntoView({ behavior: 'smooth' });
+                  const target = document.getElementById('how-it-works');
+                  target?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 style={{
                   background: 'none',

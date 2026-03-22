@@ -22,8 +22,8 @@ const App = () => {
       <Navbar lang={lang} switchLang={switchLang} />
       <main style={{ paddingTop: 72 }}>
         <Hero lang={lang} />
-        <PainPoints lang={lang} />
         <Video lang={lang} />
+        <PainPoints lang={lang} />
         <HowItWorks lang={lang} />
         <WhatYouGet lang={lang} />
         <CRM lang={lang} />
