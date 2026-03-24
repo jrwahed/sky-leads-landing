@@ -109,13 +109,13 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
                 borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer',
                 transition: 'var(--transition-fast)', whiteSpace: 'nowrap',
               }}>{isAr ? 'ابدأ كامبين' : 'Start Campaign'}</button>
-              <button onClick={() => openForm('demo')} style={{
+              <button onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })} style={{
                 background: 'transparent', color: 'var(--t2)',
                 fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
                 fontWeight: 600, fontSize: 12, padding: '6px 16px',
                 borderRadius: 'var(--r-full)', border: '1px solid var(--border-2)',
                 cursor: 'pointer', transition: 'var(--transition-fast)', whiteSpace: 'nowrap',
-              }}>{isAr ? 'ديمو مجاناً' : 'Free Demo'}</button>
+              }}>{isAr ? 'احسب تكلفة الليد' : 'Calculate CPL'}</button>
             </div>
 
             {/* Lang Toggle */}
@@ -222,13 +222,13 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
           fontWeight: 700, fontSize: 13, padding: '8px 12px',
           borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer',
         }}>{isAr ? 'ابدأ كامبين' : 'Start Campaign'}</button>
-        <button onClick={() => openForm('demo')} style={{
+        <button onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })} style={{
           flex: 1, background: 'transparent', color: 'var(--t2)',
           fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
           fontWeight: 600, fontSize: 13, padding: '8px 12px',
           borderRadius: 'var(--r-full)', border: '1px solid var(--border-2)',
           cursor: 'pointer',
-        }}>{isAr ? 'ديمو مجاناً' : 'Free Demo'}</button>
+        }}>{isAr ? 'احسب تكلفة الليد' : 'Calculate CPL'}</button>
       </div>
 
       {/* Mobile Drawer */}
