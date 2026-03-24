@@ -114,7 +114,7 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
       }),
     });
 
-    window.open(`https://wa.me/201034575482?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/201034584067?text=${encodeURIComponent(msg)}`, '_blank');
     closeForm();
     setCompany('');
     setPhone('');

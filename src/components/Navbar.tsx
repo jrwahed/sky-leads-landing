@@ -11,6 +11,7 @@ interface NavbarProps {
 
 const navLinksEn = ['Home', 'About', 'Services', 'Contact'];
 const navLinksAr = ['الرئيسية', 'عن سكاي ليدز', 'الخدمات', 'تواصل معنا'];
+const scrollTargets = ['top', 'how-it-works', 'what-you-get', 'final-cta'];
 
 const Navbar = ({ lang, switchLang }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
@@ -63,6 +64,14 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
                 key={i}
                 href="#"
                 className="nav-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (scrollTargets[i] === 'top') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    document.getElementById(scrollTargets[i])?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 style={{
                   fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
                   fontWeight: 500,
@@ -190,7 +199,17 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 40 }}>
               {links.map((link, i) => (
-                <a key={i} href="#" onClick={() => setMobileOpen(false)} style={{
+                <a key={i} href="#" onClick={(e) => {
+                  e.preventDefault();
+                  setMobileOpen(false);
+                  setTimeout(() => {
+                    if (scrollTargets[i] === 'top') {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                      document.getElementById(scrollTargets[i])?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 300);
+                }} style={{
                   fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
                   fontWeight: 600, fontSize: 20, color: 'var(--t1)', textDecoration: 'none',
                 }}>

@@ -35,7 +35,7 @@ const WhatYouGet = ({ lang }: { lang: Lang }) => {
   const t = isAr ? ar : en;
 
   return (
-    <section style={{ background: 'var(--bg)', padding: 'var(--section-py) 0' }}>
+    <section id="what-you-get" style={{ background: 'var(--bg)', padding: 'var(--section-py) 0' }}>
       <div className="container">
         <SectionHeader overline={t.overline} title={t.title} titleAccent={t.titleAccent} center isAr={isAr} />
 

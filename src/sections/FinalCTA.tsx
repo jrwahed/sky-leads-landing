@@ -32,7 +32,7 @@ const FinalCTA = ({ lang }: { lang: Lang }) => {
   const { openForm } = useContactForm();
 
   return (
-    <section style={{
+    <section id="final-cta" style={{
       background: 'var(--bg)', padding: 'var(--section-py) 0',
       position: 'relative', overflow: 'hidden', textAlign: 'center',
     }}>
