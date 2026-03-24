@@ -93,6 +93,27 @@ const ContactForm = ({ lang }: { lang: Lang }) => {
     msg += `\nHeard About Us: ${hearAbout}`;
     if (mode === 'campaign' && budget) msg += `\nBudget: ${budget}`;
     msg += `\nSource: Sky Leads Landing Page`;
+
+    // Fire-and-forget email notification
+    fetch("https://formsubmit.co/ajax/01271370674aa@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        _subject: mode === 'campaign' ? "🚀 New Campaign Request - Sky Leads" : "👀 New Demo Request - Sky Leads",
+        "Request Type": mode === 'campaign' ? "Campaign" : "Demo",
+        "Company Name": company.trim(),
+        "Phone Number": phone.trim(),
+        "Job Title": jobTitle.trim(),
+        "Company Size": companySize || "N/A",
+        "How They Found Us": hearAbout || "N/A",
+        "Budget": mode === 'campaign' ? budget : "N/A (Demo request)",
+        _template: "table",
+      }),
+    });
+
     window.open(`https://wa.me/201034575482?text=${encodeURIComponent(msg)}`, '_blank');
     closeForm();
     setCompany('');
