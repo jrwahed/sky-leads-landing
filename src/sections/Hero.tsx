@@ -17,6 +17,7 @@ const en = {
   cta1: "Start a Campaign",
   cta2: "Request a Free Demo",
   cta3: "See It In Action",
+  cta4: "Calculate Your CPL Free ↓",
 };
 
 const ar = {
@@ -33,6 +34,7 @@ const ar = {
   cta1: "ابدأ كامبين",
   cta2: "اطلب نسخة تجريبية مجاناً",
   cta3: "شوف السيستم بيشتغل إزاي",
+  cta4: "احسب تكلفة الليد مجاناً ↓",
 };
 
 const enStages = [
@@ -392,7 +394,31 @@ const Hero = ({ lang }: HeroProps) => {
                 onClick={() => openForm('demo')}
               />
             </div>
-            <div className="hero-see-action">
+            <div className="hero-see-action" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <button
+                onClick={() => {
+                  const target = document.getElementById('calculator');
+                  target?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                  fontWeight: 500,
+                  fontSize: 14,
+                  color: 'var(--accent)',
+                  padding: '8px 0',
+                  transition: 'var(--transition-fast)',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+              >
+                {t.cta4}
+              </button>
               <button
                 onClick={() => {
                   const target = document.getElementById('how-it-works');

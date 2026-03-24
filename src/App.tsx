@@ -8,6 +8,7 @@ import HowItWorks from '@/sections/HowItWorks';
 import WhatYouGet from '@/sections/WhatYouGet';
 import CRM from '@/sections/CRM';
 import Video from '@/sections/Video';
+import Calculator from '@/sections/Calculator';
 import WhoBenefits from '@/sections/WhoBenefits';
 import Reviews from '@/sections/Reviews';
 import Clients from '@/sections/Clients';
@@ -25,6 +26,7 @@ const App = () => {
         <Video lang={lang} />
         <PainPoints lang={lang} />
         <HowItWorks lang={lang} />
+        <Calculator lang={lang} />
         <WhatYouGet lang={lang} />
         <CRM lang={lang} />
         <WhoBenefits lang={lang} />
