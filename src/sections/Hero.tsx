@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, ChevronDown } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import { Lang } from '@/hooks/useLanguage';
 import { fadeUp, stagger, slideLeft, slideRight } from '@/lib/animations';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -394,57 +394,32 @@ const Hero = ({ lang }: HeroProps) => {
                 onClick={() => openForm('demo')}
               />
             </div>
-            <div className="hero-see-action" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <button
-                onClick={() => {
-                  const target = document.getElementById('calculator');
-                  target?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
-                  fontWeight: 500,
-                  fontSize: 14,
-                  color: 'var(--accent)',
-                  padding: '8px 0',
-                  transition: 'var(--transition-fast)',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.8'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
-              >
-                {t.cta4}
-              </button>
-              <button
-                onClick={() => {
-                  const target = document.getElementById('how-it-works');
-                  target?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
-                  fontWeight: 500,
-                  fontSize: 14,
-                  color: 'var(--t3)',
-                  padding: '8px 0',
-                  transition: 'var(--transition-fast)',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--t3)'; }}
-              >
-                {t.cta3}
-                <ChevronDown size={14} />
-              </button>
-            </div>
+            <button
+              className="hero-calc-btn"
+              onClick={() => {
+                document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              style={{
+                background: 'transparent',
+                border: '1px solid var(--accent)',
+                color: 'var(--accent)',
+                fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                fontWeight: 600,
+                fontSize: 15,
+                padding: '12px 32px',
+                borderRadius: 'var(--r-full)',
+                cursor: 'pointer',
+                transition: 'var(--transition-fast)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 6,
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(200,240,0,0.08)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+            >
+              {t.cta4}
+            </button>
           </motion.div>
         </motion.div>
 
@@ -516,12 +491,8 @@ const Hero = ({ lang }: HeroProps) => {
             align-items: stretch !important;
             width: 100% !important;
           }
-          .hero-see-action {
+          .hero-calc-btn {
             width: 100% !important;
-          }
-          .hero-see-action button {
-            width: 100% !important;
-            justify-content: center !important;
             min-height: 48px !important;
           }
           .hero-cta-buttons {

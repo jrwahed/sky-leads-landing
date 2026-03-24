@@ -15,6 +15,7 @@ const scrollTargets = ['top', 'how-it-works', 'what-you-get', 'final-cta'];
 
 const Navbar = ({ lang, switchLang }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
+  const [showStickyCTAs, setShowStickyCTAs] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isAr = lang === 'ar';
   const links = isAr ? navLinksAr : navLinksEn;
@@ -22,7 +23,10 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
   const { openForm } = useContactForm();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+      setShowStickyCTAs(window.scrollY > window.innerHeight);
+    };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -90,6 +94,30 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
 
           {/* Right */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            {/* Sticky CTAs (desktop) */}
+            <div className="sticky-ctas-desktop" style={{
+              display: 'flex', gap: 8,
+              opacity: showStickyCTAs ? 1 : 0,
+              transform: showStickyCTAs ? 'translateY(0)' : 'translateY(-8px)',
+              transition: 'opacity 0.3s ease, transform 0.3s ease',
+              pointerEvents: showStickyCTAs ? 'auto' : 'none',
+            }}>
+              <button onClick={() => openForm('campaign')} style={{
+                background: 'var(--accent)', color: '#000',
+                fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                fontWeight: 700, fontSize: 12, padding: '6px 16px',
+                borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer',
+                transition: 'var(--transition-fast)', whiteSpace: 'nowrap',
+              }}>{isAr ? 'ابدأ كامبين' : 'Start Campaign'}</button>
+              <button onClick={() => openForm('demo')} style={{
+                background: 'transparent', color: 'var(--t2)',
+                fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+                fontWeight: 600, fontSize: 12, padding: '6px 16px',
+                borderRadius: 'var(--r-full)', border: '1px solid var(--border-2)',
+                cursor: 'pointer', transition: 'var(--transition-fast)', whiteSpace: 'nowrap',
+              }}>{isAr ? 'ديمو مجاناً' : 'Free Demo'}</button>
+            </div>
+
             {/* Lang Toggle */}
             <div
               className="lang-toggle-desktop"
@@ -144,6 +172,9 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
               className="nav-cta-desktop"
               onClick={() => openForm('campaign')}
               style={{
+                opacity: showStickyCTAs ? 0 : 1,
+                pointerEvents: showStickyCTAs ? 'none' : 'auto',
+                transition: 'opacity 0.3s ease',
                 background: 'var(--accent)',
                 color: '#000',
                 fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
@@ -172,6 +203,33 @@ const Navbar = ({ lang, switchLang }: NavbarProps) => {
           </div>
         </div>
       </motion.nav>
+
+      {/* Mobile Sticky CTA Bar */}
+      <div className="sticky-ctas-mobile" style={{
+        position: 'fixed', top: 72, left: 0, width: '100%',
+        background: 'rgba(8,8,8,0.9)', backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid var(--border)', padding: '8px 20px',
+        zIndex: 999, display: 'none',
+        transform: showStickyCTAs ? 'translateY(0)' : 'translateY(-100%)',
+        opacity: showStickyCTAs ? 1 : 0,
+        transition: 'transform 0.3s ease, opacity 0.3s ease',
+        gap: 8,
+      }}>
+        <button onClick={() => openForm('campaign')} style={{
+          flex: 1, background: 'var(--accent)', color: '#000',
+          fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+          fontWeight: 700, fontSize: 13, padding: '8px 12px',
+          borderRadius: 'var(--r-full)', border: 'none', cursor: 'pointer',
+        }}>{isAr ? 'ابدأ كامبين' : 'Start Campaign'}</button>
+        <button onClick={() => openForm('demo')} style={{
+          flex: 1, background: 'transparent', color: 'var(--t2)',
+          fontFamily: isAr ? "'Tajawal', sans-serif" : "'Outfit', sans-serif",
+          fontWeight: 600, fontSize: 13, padding: '8px 12px',
+          borderRadius: 'var(--r-full)', border: '1px solid var(--border-2)',
+          cursor: 'pointer',
+        }}>{isAr ? 'ديمو مجاناً' : 'Free Demo'}</button>
+      </div>
 
       {/* Mobile Drawer */}
       <AnimatePresence>

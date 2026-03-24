@@ -158,6 +158,8 @@ section:first-of-type {
   .nav-links-desktop { display: none !important; }
   .lang-toggle-desktop { display: none !important; }
   .nav-cta-desktop { display: none !important; }
+  .sticky-ctas-desktop { display: none !important; }
+  .sticky-ctas-mobile { display: flex !important; }
   .hamburger-mobile { display: block !important; }
 }
 
@@ -169,6 +171,8 @@ section:first-of-type {
   .nav-links-desktop { display: none !important; }
   .lang-toggle-desktop { display: none !important; }
   .nav-cta-desktop { display: none !important; }
+  .sticky-ctas-desktop { display: none !important; }
+  .sticky-ctas-mobile { display: flex !important; }
   .hamburger-mobile { display: block !important; }
 }
 
