@@ -11,42 +11,42 @@ import { useContactForm } from '@/contexts/ContactFormContext';
 const AREA_BENCHMARKS: Record<string, {
   name_ar: string; name_en: string;
   cpl_residential: number; cpl_villas: number; cpl_commercial: number; cpl_chalets: number;
-  cpl_avg: number; conv_min: number; conv_max: number; conv_avg: number;
+  cpl_avg: number;
 }> = {
   "6_october": {
     name_ar: "6 أكتوبر", name_en: "6th of October",
     cpl_residential: 200, cpl_villas: 300, cpl_commercial: 350, cpl_chalets: 280,
-    cpl_avg: 250, conv_min: 3, conv_max: 6, conv_avg: 4.5
+    cpl_avg: 250,
   },
   "tagamoa": {
     name_ar: "التجمع الخامس", name_en: "Fifth Settlement",
     cpl_residential: 300, cpl_villas: 350, cpl_commercial: 400, cpl_chalets: 350,
-    cpl_avg: 350, conv_min: 2, conv_max: 4, conv_avg: 3
+    cpl_avg: 350,
   },
   "new_capital": {
     name_ar: "العاصمة الإدارية", name_en: "New Capital",
     cpl_residential: 250, cpl_villas: 300, cpl_commercial: 350, cpl_chalets: 280,
-    cpl_avg: 295, conv_min: 2, conv_max: 5, conv_avg: 3.5
+    cpl_avg: 295,
   },
   "mostakbal": {
     name_ar: "مدينة المستقبل", name_en: "Mostakbal City",
     cpl_residential: 250, cpl_villas: 300, cpl_commercial: 350, cpl_chalets: 280,
-    cpl_avg: 295, conv_min: 2, conv_max: 5, conv_avg: 3.5
+    cpl_avg: 295,
   },
   "sheikh_zayed": {
     name_ar: "الشيخ زايد", name_en: "Sheikh Zayed",
     cpl_residential: 300, cpl_villas: 350, cpl_commercial: 400, cpl_chalets: 320,
-    cpl_avg: 340, conv_min: 2, conv_max: 4, conv_avg: 3
+    cpl_avg: 340,
   },
   "sahel": {
     name_ar: "الساحل الشمالي", name_en: "North Coast",
     cpl_residential: 300, cpl_villas: 350, cpl_commercial: 400, cpl_chalets: 280,
-    cpl_avg: 330, conv_min: 1, conv_max: 3, conv_avg: 2
+    cpl_avg: 330,
   },
   "ain_sokhna": {
     name_ar: "العين السخنة", name_en: "Ain Sokhna",
     cpl_residential: 280, cpl_villas: 320, cpl_commercial: 380, cpl_chalets: 260,
-    cpl_avg: 310, conv_min: 2, conv_max: 4, conv_avg: 3
+    cpl_avg: 310,
   },
 };
 
@@ -91,9 +91,7 @@ const t = {
     benchmarkTitle: (area: string) => `Market Benchmarks in ${area}`,
     cplRange: "CPL Range",
     avgCpl: "Average CPL",
-    convRange: "Conversion Rate",
     expectedLeads: "Expected Leads",
-    expectedDeals: "Expected Deals",
     expectedCpl: "Expected CPL",
     rangeFrom: "From",
     rangeTo: "to",
@@ -104,7 +102,6 @@ const t = {
     ctrTip1: "If CTR < 2% → creative problem",
     ctrTip2: "If CTR is high but CPL is expensive → audience problem",
     qualityTip: "Ideal ready leads (Quality) ratio: 25-35%",
-    dealsDisclaimer: "* Numbers are estimates and vary based on targeting and content quality",
     budgetSmall: "Budget is small — ads need 5-7 days to learn",
     budgetMedium: "Good budget — start with 100-150 EGP/day per Ad Set",
     budgetLarge: "Excellent budget — split across 3-5 different Ad Sets",
@@ -129,9 +126,7 @@ const t = {
     benchmarkTitle: (area: string) => `معايير السوق في ${area}`,
     cplRange: "نطاق تكلفة الليد",
     avgCpl: "متوسط تكلفة الليد",
-    convRange: "معدل التحويل",
     expectedLeads: "الليدز المتوقعة",
-    expectedDeals: "الـ Deals المتوقعة",
     expectedCpl: "تكلفة الليد المتوقعة",
     rangeFrom: "من",
     rangeTo: "إلى",
@@ -142,7 +137,6 @@ const t = {
     ctrTip1: "لو الـ CTR أقل من 2% → مشكلة في الـ Creative",
     ctrTip2: "لو الـ CTR عالي والليد غالي → مشكلة في الـ Audience",
     qualityTip: "نسبة الليدز الجاهزة (Quality) المثالية: 25-35%",
-    dealsDisclaimer: "* الأرقام تقديرية وبتختلف حسب جودة الاستهداف والمحتوى",
     budgetSmall: "الميزانية صغيرة — الإعلان محتاج 5-7 أيام عشان يتعلم",
     budgetMedium: "ميزانية مناسبة — ابدأ بـ 100-150 جنيه/يوم لكل Ad Set",
     budgetLarge: "ميزانية ممتازة — وزعها على 3-5 Ad Sets مختلفة",
@@ -213,9 +207,6 @@ const Calculator = ({ lang }: { lang: Lang }) => {
   const leadsAvg = bench ? Math.round(budget / cplForType) : 0;
   const leadsMin = bench ? Math.round(leadsAvg * 0.7) : 0;
   const leadsMax = bench ? Math.round(leadsAvg * 1.3) : 0;
-  const dealsAvg = bench ? Math.round(leadsAvg * bench.conv_avg / 100) : 0;
-  const dealsMin = bench ? Math.round(leadsMin * bench.conv_min / 100) : 0;
-  const dealsMax = bench ? Math.round(leadsMax * bench.conv_max / 100) : 0;
   const cplAvg = cplForType;
 
   const cplColor = cplAvg < 250 ? '#22c55e' : cplAvg <= 350 ? '#c8f000' : '#f97316';
@@ -432,14 +423,11 @@ const Calculator = ({ lang }: { lang: Lang }) => {
                   </div>
                 </div>
 
-                <div style={{ fontFamily: font, fontSize: 14, color: 'var(--t2)' }}>
-                  {l.convRange}: {bench.conv_min}% - {bench.conv_max}%
-                </div>
               </motion.div>
 
-              {/* Card 2: 3 Metrics */}
+              {/* Card 2: 2 Metrics */}
               <motion.div variants={fadeUp} className="calc-metrics" style={{
-                display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 20,
+                display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginBottom: 20,
               }}>
                 {/* Leads */}
                 <div style={{
@@ -454,25 +442,6 @@ const Calculator = ({ lang }: { lang: Lang }) => {
                   </div>
                   <div style={{ fontFamily: font, fontSize: 12, color: 'var(--t4)', marginTop: 8 }}>
                     {l.rangeFrom} {leadsMin} {l.rangeTo} {leadsMax}
-                  </div>
-                </div>
-
-                {/* Deals */}
-                <div style={{
-                  background: 'var(--bg-card)', border: '1px solid var(--border)',
-                  borderRadius: 'var(--r-lg)', padding: 24, textAlign: 'center',
-                }}>
-                  <div style={{ fontFamily: font, fontSize: 13, color: 'var(--t3)', marginBottom: 8 }}>
-                    {l.expectedDeals}
-                  </div>
-                  <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 36, color: 'var(--accent)', lineHeight: 1 }}>
-                    <AnimatedNumber value={dealsAvg} started={showResults} />
-                  </div>
-                  <div style={{ fontFamily: font, fontSize: 12, color: 'var(--t4)', marginTop: 8 }}>
-                    {l.rangeFrom} {dealsMin} {l.rangeTo} {dealsMax}
-                  </div>
-                  <div style={{ fontFamily: font, fontSize: 10, color: 'var(--t4)', marginTop: 6, lineHeight: 1.4 }}>
-                    {l.dealsDisclaimer}
                   </div>
                 </div>
 
